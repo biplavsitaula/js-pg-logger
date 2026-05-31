@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "node --env-file=.env --watch server.js"
+    "dev": "node server.js",
+    "build": "esbuild server.js --bundle --platform=node --format=esm --outfile=dist/server.js"
   },
   "keywords": [],
   "author": "",
@@ -12,5 +13,8 @@
   "type": "module",
   "dependencies": {
     "pg": "^8.21.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.0"
   }
 }
