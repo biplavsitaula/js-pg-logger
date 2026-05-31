@@ -7,6 +7,7 @@
     - init: to initialize the logger and create the table in the database.
     - save: to save the log in the database.
     - getLogs: to retrieve the logs from the database.
+    - getById: to retrieve a specific log by its ID.
     The logger service can be used in any part of the application to log the required information. The logs can be retrieved and analyzed to understand the behavior of the application and to debug any issues that may arise.
 
 ### Usage
@@ -15,6 +16,7 @@
     2. Initialize the logger service by calling the init method.
     3. Use the save method to log the required information in the database.
     4. Use the getLogs method to retrieve the logs from the database for analysis.
+    5. Use the getById method to retrieve a specific log by its ID.
 
 ### Example
 ```javascript
@@ -37,6 +39,8 @@ logger.save({
 });
 // Retrieve the logs
 logger.getLogs();
+
+logger.getById(logId);
 ```
 ### Conclusion
     The logger service is a useful tool for developers to maintain the log of api calls, methods and other services. It helps in understanding the behavior of the application and debugging any issues that may arise. By using the logger service, developers can easily track the performance of their application and make necessary improvements.
