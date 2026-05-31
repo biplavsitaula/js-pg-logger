@@ -102,6 +102,7 @@ class Logger {
 export const logger = new Logger();
 
 //EXAMPLE USAGE
+
 // import { logger } from "your-logger-package";
 
 // await logger.init(process.env.DB_URL, {
@@ -112,61 +113,3 @@ export const logger = new Logger();
 // });
 
 // ENDS HERE
-
-// import EventEmitter from "events";
-// import { pool } from "../config/db.js";
-
-// const auditEmitter = new EventEmitter();
-
-// auditEmitter.on("saveLog", async (logData) => {
-//   const query = `
-//     INSERT INTO audit_logs (user_id, action, route, method, payload, created_at)
-//     VALUES ($1, $2, $3, $4, $5, NOW())
-//   `;
-//   const values = [
-//     logData.userId,
-//     logData.action,
-//     logData.route,
-//     logData.method,
-//     JSON.stringify(logData.payload),
-//   ];
-
-//   try {
-//     await pool.query(query, values);
-//     console.log(
-//       `[Background Success] Audit log saved for user ${logData.userId}`,
-//     );
-//   } catch (err) {
-//     console.error("[Background Error] Failed to save audit log:", err.message);
-//   }
-// });
-
-// export const nonBlockingAuditLogger = (req, res, next) => {
-//   const logData = {
-//     userId: req.headers["x-user-id"] || "anonymous",
-//     action: req.headers["x-action-name"] || "resource_access",
-//     route: req.originalUrl,
-//     method: req.method,
-//     payload: req.body || {},
-//   };
-
-//   auditEmitter.emit("saveLog", logData);
-
-//   next();
-// };
-
-// export const getLog = async (req, res, next) => {
-//   try {
-//     const result = await pool.query(`
-//       SELECT * FROM audit_logs
-//       ORDER BY created_at DESC
-//     `);
-
-//     return res.status(200).json({
-//       success: true,
-//       data: result.rows,
-//     });
-//   } catch (error) {
-//     next(error);
-//   }
-// };

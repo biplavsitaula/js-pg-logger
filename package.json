@@ -2,13 +2,13 @@
   "name": "logger-js-pg",
   "version": "1.0.0",
   "description": "This package lets developer to maintain a log table on db for api calls. It can be used as a middleware or normal js function. See example for more details.",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
-    "dev": "node server.js",
-    "build": "esbuild server.js --bundle --platform=node --format=esm --outfile=dist/server.js"
+    "dev": "node index.js",
+    "build": "esbuild index.js --bundle --platform=node --format=esm --outfile=dist/index.js"
   },
   "publishConfig": {
-    "registry": "https://npmjs.org"
+    "registry": "https://registry.npmjs.org"
   },
   "keywords": [
     "js-api-log",

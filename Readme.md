@@ -20,22 +20,20 @@
 
 ### Example
 ```javascript
-const LoggerService = require('./loggerService');
-const logger = new LoggerService();
-// Initialize the logger service
-logger.init(db_url,{
-    //fields to be logged
-        method: 'string',
-        endpoint: 'string',
-        status: 'number',
-        responseTime: 'number'
+import { logger } from "your-logger-package";
+
+await logger.init(process.env.DB_URL, {
+    user_id: "TEXT",
+    action: "TEXT",
+    route: "TEXT",
+    method: "TEXT",
 });
 // Log an API call
 logger.save({
-    method: 'GET',
-    endpoint: '/api/users',
-    status: 200,
-    responseTime: 150
+        method: 'GET',
+        endpoint: '/api/users',
+        status: 200,
+        responseTime: 150
 });
 // Retrieve the logs
 logger.getLogs();
